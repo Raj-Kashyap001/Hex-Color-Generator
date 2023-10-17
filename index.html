@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hex Color Code Generator</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #333;
+        color: #fff;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      h1 {
+        margin-block: 2rem;
+        text-align: center;
+      }
+      .container {
+        width: 300px;
+        aspect-ratio: 1/1.4;
+        border-radius: 12px;
+        background: hsla(0, 0%, 0%, 0.4);
+        backdrop-filter: blur(50%);
+        -webkit-backdrop-filter: blur(50%);
+        box-shadow: 1px 1px 6px #7c7c7c52;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .container > * {
+        padding: 1rem 0.5rem;
+      }
+      .clr-input {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        background: transparent;
+        border: none;
+      }
+      .show-hex {
+        width: 200px;
+        height: 50px;
+        background: #000;
+        margin-inline: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Color Hex Code Generator</h1>
+    <div class="container">
+      <h2>Pick Your Colour</h2>
+      <input class="clr-input" type="color" name="clr-picker" id="clr-picker" />
+      <h3>HEX Code</h3>
+      <div class="show-hex">#000000</div>
+    </div>
+    <script>
+      const colorInputEl = document.querySelector("#clr-picker");
+      const showEl = document.querySelector(".show-hex");
+      colorInputEl.value = "#000000";
+      colorInputEl.addEventListener("change", () => {
+        showEl.innerText = colorInputEl.value;
+        document.body.style.backgroundColor = colorInputEl.value;
+      });
+    </script>
+  </body>
+</html>
